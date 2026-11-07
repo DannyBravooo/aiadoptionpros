@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Adoption Pros – Practical AI for New England Local Business</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- ALL YOUR EXISTING CSS GOES HERE (unchanged) --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.5; color: #1e293b; background-color: #0b1120; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark { width: 42px; height: 42px; background: linear-gradient(135deg, #2563eb, #1e40af, #0f172a); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1px rgba(37,99,235,.3), 0 4px 12px rgba(37,99,235,.25); }
+    .logo-letters { font-family: 'Space Grotesk', monospace; font-weight: 700; font-size: 1.15rem; color: #fff; }
+    .logo-letters .dot { color: #60a5fa; }
+    .logo-text-block { display: flex; flex-direction: column; line-height: 1.15; }
+    .logo-wordmark { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff; }
+    .logo-wordmark span { color: #60a5fa; }
+    .logo-tagline { font-size: .65rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: #94a3b8; }
+    .navbar { background: rgba(15,23,42,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.06); position: sticky; top: 0; z-index: 50; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { text-decoration: none; color: #cbd5e1; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: #60a5fa; }
+    .btn { display: inline-block; background-color: #2563eb; color: #fff; font-weight: 600; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: .15s; border: none; cursor: pointer; }
+    .btn:hover { background-color: #1d4ed8; box-shadow: 0 4px 14px rgba(37,99,235,.35); }
+    .btn-outline { background: transparent; color: #60a5fa; border: 1px solid rgba(96,165,250,.4); }
+    .btn-outline:hover { background: rgba(37,99,235,.1); border-color: #60a5fa; box-shadow: none; }
+    .btn-large { font-size: 1.1rem; padding: 14px 36px; }
+    .hero { position: relative; padding: 88px 0 80px; background: #0b1120; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(37,99,235,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,.06) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%); }
+    .hero-content { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; text-align: center; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 8px; background: rgba(37,99,235,.12); border: 1px solid rgba(96,165,250,.25); color: #93c5fd; font-size: .85rem; font-weight: 600; padding: 8px 18px; border-radius: 100px; margin-bottom: 28px; }
+    .hero h1 { font-size: 3.2rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; margin-bottom: 24px; color: #fff; }
+    .hero h1 span { background: linear-gradient(90deg, #60a5fa, #2563eb); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 36px; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    section { padding: 80px 0; position: relative; }
+    .section-dark { background: #0b1120; }
+    .section-darker { background: #0f172a; }
+    .section-title { font-size: 2.1rem; font-weight: 700; text-align: center; margin-bottom: 16px; color: #fff; }
+    .section-subtitle { text-align: center; color: #94a3b8; max-width: 700px; margin: 0 auto 48px; font-size: 1.125rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+    .service-card { background: linear-gradient(145deg, rgba(30,41,59,.7), rgba(15,23,42,.9)); border-radius: 20px; padding: 32px; border: 1px solid rgba(96,165,250,.12); display: flex; flex-direction: column; transition: .2s; }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(96,165,250,.3); box-shadow: 0 20px 25px -5px rgba(0,0,0,.4); }
+    .service-icon { font-size: 2rem; color: #60a5fa; margin-bottom: 20px; width: 56px; height: 56px; background: rgba(37,99,235,.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .service-card p { color: #94a3b8; margin-bottom: 20px; flex-grow: 1; font-size: .95rem; }
+    .price-tag { font-weight: 600; color: #93c5fd; background: rgba(37,99,235,.12); border: 1px solid rgba(96,165,250,.15); padding: 8px 14px; border-radius: 100px; display: inline-block; font-size: .85rem; margin-top: 8px; align-self: flex-start; }
+    .badge-new { background: rgba(37,99,235,.2); color: #93c5fd; border: 1px solid rgba(96,165,250,.3); font-size: .65rem; font-weight: 700; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; align-self: flex-start; margin-bottom: 12px; }
+    .audit-highlight { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 28px; padding: 56px; margin: 0 0 48px; border: 1px solid rgba(96,165,250,.15); }
+    .audit-content { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .audit-text { flex: 2; min-width: 280px; }
+    .audit-text h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; color: #fff; }
+    .audit-text h3 span { color: #60a5fa; }
+    .audit-text p { color: #cbd5e1; margin-bottom: 16px; }
+    .audit-text ul { list-style: none; margin: 20px 0 28px; }
+    .audit-text ul li { padding: 7px 0; display: flex; gap: 12px; color: #e2e8f0; font-size: .98rem; }
+    .audit-text ul li i { color: #60a5fa; margin-top: 4px; }
+    .audit-price { flex: 1; min-width: 240px; background: rgba(255,255,255,.05); border-radius: 20px; padding: 36px 28px; text-align: center; border: 1px solid rgba(96,165,250,.2); }
+    .audit-price .price { font-size: 2.8rem; font-weight: 800; color: #fff; }
+    .audit-price .price small { font-size: .9rem; font-weight: 500; color: #94a3b8; display: block; }
+    .audit-price .credit-note { margin-top: 18px; font-size: .88rem; color: #93c5fd; }
+    .industry-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 18px; margin-top: 24px; }
+    .industry-badge { background: rgba(37,99,235,.1); color: #93c5fd; border: 1px solid rgba(96,165,250,.15); padding: 10px 22px; border-radius: 100px; font-weight: 600; font-size: .95rem; display: inline-flex; align-items: center; gap: 8px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; margin-top: 24px; }
+    .step-card { background: linear-gradient(145deg, rgba(30,41,59,.6), rgba(15,23,42,.8)); border-radius: 20px; padding: 32px 24px; border: 1px solid rgba(96,165,250,.12); text-align: center; }
+    .step-number { background: linear-gradient(135deg, #2563eb, #1e40af); color: #fff; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; margin: 0 auto 20px; }
+    .step-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .step-card p { color: #94a3b8; font-size: .92rem; }
+    .faq-grid { max-width: 800px; margin: 0 auto; }
+    .faq-item { background: rgba(30,41,59,.5); border-radius: 16px; padding: 24px 28px; margin-bottom: 16px; border: 1px solid rgba(96,165,250,.1); }
+    .faq-item h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .faq-item h4 i { color: #60a5fa; margin-right: 10px; }
+    .faq-item p { color: #94a3b8; font-size: .93rem; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 24px; }
+    .pricing-card { background: linear-gradient(145deg, rgba(30,41,59,.6), rgba(15,23,42,.8)); border-radius: 20px; padding: 36px 28px; border: 1px solid rgba(96,165,250,.12); display: flex; flex-direction: column; }
+    .pricing-card.featured { border: 1px solid rgba(96,165,250,.5); background: linear-gradient(145deg, rgba(37,99,235,.12), rgba(15,23,42,.9)); }
+    .pricing-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    .pricing-price { font-size: 2.1rem; font-weight: 800; color: #fff; margin: 12px 0; }
+    .pricing-price small { font-size: .85rem; color: #94a3b8; }
+    .pricing-card ul { list-style: none; margin: 16px 0 28px; flex-grow: 1; }
+    .pricing-card ul li { padding: 6px 0; display: flex; align-items: center; gap: 10px; color: #cbd5e1; font-size: .9rem; }
+    .pricing-card ul li i { color: #60a5fa; font-size: .8rem; }
+    .cta-section { background: linear-gradient(135deg, #1e3a8a, #0f172a); border-radius: 32px; padding: 72px 40px; margin: 40px 0; border: 1px solid rgba(96,165,250,.15); }
+    .cta-section h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; text-align: center; color: #fff; }
+    .cta-section > p { color: #cbd5e1; font-size: 1.15rem; max-width: 600px; margin: 0 auto 32px; text-align: center; }
+    .contact-form { max-width: 560px; margin: 0 auto; background: rgba(255,255,255,.04); padding: 36px; border-radius: 20px; border: 1px solid rgba(96,165,250,.15); }
+    .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .contact-form .form-group { margin-bottom: 16px; }
+    .contact-form label { display: block; font-size: .85rem; font-weight: 600; color: #cbd5e1; margin-bottom: 6px; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 12px 14px; background: rgba(15,23,42,.6); border: 1px solid rgba(96,165,250,.2); border-radius: 8px; color: #fff; font-family: inherit; font-size: .95rem; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(37,99,235,.2); }
+    .contact-form textarea { resize: vertical; min-height: 100px; }
+    .contact-form .btn { width: 100%; font-size: 1.05rem; padding: 14px; margin-top: 8px; }
+    .form-note { font-size: .8rem; color: #94a3b8; margin-top: 14px; text-align: center; line-height: 1.6; }
+    .form-success { display: none; padding: 20px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); border-radius: 12px; color: #86efac; text-align: center; margin-top: 16px; }
+    .form-error { display: none; padding: 12px; background: rgba(239,68,68,.15); border: 1px solid rgba(239,68,68,.3); border-radius: 8px; color: #fca5a5; font-size: .9rem; margin-top: 12px; text-align: center; }
+    .chat-toggle { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2563eb, #1e40af); color: #fff; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(37,99,235,.4); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; z-index: 1000; }
+    .chat-toggle .pulse { position: absolute; top: -4px; right: -4px; width: 16px; height: 16px; background: #22c55e; border-radius: 50%; border: 2px solid #0b1120; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,.6); } 70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+    .chat-window { position: fixed; bottom: 96px; right: 24px; width: 380px; max-width: calc(100vw - 48px); height: 540px; max-height: calc(100vh - 140px); background: #0f172a; border-radius: 20px; border: 1px solid rgba(96,165,250,.2); box-shadow: 0 24px 64px rgba(0,0,0,.6); display: none; flex-direction: column; overflow: hidden; z-index: 1000; }
+    .chat-window.open { display: flex; }
+    .chat-header { background: linear-gradient(135deg, #1e40af, #0f172a); padding: 18px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(96,165,250,.15); }
+    .bot-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(96,165,250,.2); display: flex; align-items: center; justify-content: center; color: #60a5fa; }
+    .bot-info h4 { font-size: .95rem; font-weight: 700; color: #fff; margin: 0; }
+    .bot-info span { font-size: .75rem; color: #22c55e; display: flex; align-items: center; gap: 4px; }
+    .bot-info span::before { content: ''; width: 6px; height: 6px; background: #22c55e; border-radius: 50%; }
+    .chat-close { background: transparent; border: none; color: #94a3b8; font-size: 1.1rem; cursor: pointer; }
+    .chat-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .msg { max-width: 85%; padding: 12px 16px; border-radius: 16px; font-size: .9rem; line-height: 1.5; animation: fadeIn .3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .msg.bot { background: rgba(30,41,59,.9); color: #e2e8f0; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .msg.user { background: #2563eb; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg .options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .msg .option-btn { background: rgba(37,99,235,.15); border: 1px solid rgba(96,165,250,.3); color: #93c5fd; padding: 6px 12px; border-radius: 100px; font-size: .8rem; font-weight: 600; cursor: pointer; }
+    .msg .option-btn:hover { background: rgba(37,99,235,.3); }
+    .typing-indicator { display: flex; gap: 4px; padding: 12px 16px; background: rgba(30,41,59,.9); border-radius: 16px; border-bottom-left-radius: 4px; align-self: flex-start; width: fit-content; }
+    .typing-indicator span { width: 8px; height: 8px; background: #64748b; border-radius: 50%; animation: bounce 1.4s infinite; }
+    .typing-indicator span:nth-child(2) { animation-delay: .2s; } .typing-indicator span:nth-child(3) { animation-delay: .4s; }
+    @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+    .chat-input-area { padding: 14px 16px; border-top: 1px solid rgba(96,165,250,.15); display: flex; gap: 8px; background: #0f172a; }
+    .chat-input-area input { flex: 1; padding: 10px 14px; background: rgba(30,41,59,.8); border: 1px solid rgba(96,165,250,.2); border-radius: 100px; color: #fff; font-size: .9rem; }
+    .chat-input-area input:focus { outline: none; border-color: #60a5fa; }
+    .chat-input-area button { width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    footer { background: #0b1120; border-top: 1px solid rgba(255,255,255,.06); padding: 40px 0; color: #64748b; font-size: .9rem; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; margin-left: 24px; }
+    .footer-links a:hover { color: #60a5fa; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; } .nav-links { display: none; } .footer-content { flex-direction: column; text-align: center; } .footer-links a { margin: 0 12px; }
+      .audit-content { flex-direction: column; } .cta-section h2 { font-size: 1.8rem; } .contact-form .form-row { grid-template-columns: 1fr; }
+      .chat-window { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo-wrap">
+        <div class="logo-mark"><span class="logo-letters">AI<span class="dot">.</span>AP</span></div>
+        <div class="logo-text-block"><span class="logo-wordmark">AI Adoption<span>Pros</span></span><span class="logo-tagline">Practical AI · New England</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a><a href="#audit">AI Audit</a><a href="#industries">Who we help</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#contact" class="btn">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-kicker"><i class="fas fa-bolt"></i> Practical AI for New England local business</div>
+      <h1>You keep the customers.<br>We handle the <span>misses</span>.</h1>
+      <p>We install simple, high-impact AI workflows that stop revenue leaks – missed calls, no-shows, slow follow-up, dormant email lists, and phone orders that never get answered.</p>
+      <div class="hero-buttons"><a href="#audit" class="btn btn-large">Book a paid AI Audit — $1,500</a><a href="#services" class="btn btn-outline btn-large">Explore services</a></div>
+    </div>
+  </header>
+
+  <section id="services" class="section-dark">
+    <div class="container">
+      <h2 class="section-title">Services built for local businesses</h2>
+      <p class="section-subtitle">We focus on the things that directly recover lost revenue – not AI for the sake of AI.</p>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon"><i class="fas fa-phone-slash"></i></div><h3>Missed‑Call Text‑Back</h3><p>When you miss a call, an automatic text goes out instantly offering to book. Turn missed calls into booked jobs – even after hours.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$1,500 setup + $100–$300/mo</div></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>AI Phone Answering</h3><p>Handles calls after hours, answers common questions, and books appointments. Never lose a customer to voicemail again.</p><div class="price-tag"><i class="fas fa-tag"></i> $1,000–$3,000 setup + $200–$600/mo</div></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-comments"></i></div><h3>Website Chat → Booking</h3><p>Turn website visitors into booked appointments with smart chat that captures details and pushes to your calendar.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$2,000 setup + $100–$300/mo</div></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-calendar-check"></i></div><h3>No‑Show Reduction</h3><p>Automated reminders and smart follow‑ups that cut no‑shows and fill gaps in your schedule.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$1,500 setup + $100–$250/mo</div></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-star"></i></div><h3>Review Generation & Response</h3><p>Automatically request reviews after each job and respond to them. Boost local search visibility and build trust.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$1,500 setup + $150–$400/mo</div></div>
+        <div class="service-card"><span class="badge-new">New</span><div class="service-icon"><i class="fas fa-envelope-open-text"></i></div><h3>Customer Reactivation</h3><p>Your email list is probably full of money you're not collecting. We clean it, scrub it, and send a targeted reactivation campaign.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$1,500 setup + 10–30% performance or $200–$500/mo</div></div>
+        <div class="service-card"><span class="badge-new">New</span><div class="service-icon"><i class="fas fa-utensils"></i></div><h3>AI Phone Ordering & Reservations</h3><p>Your phone rings during dinner rush. Nobody answers. Our AI voice agent answers every call, takes the order, and pushes it to your POS.</p><div class="price-tag"><i class="fas fa-tag"></i> $1,500–$3,000 setup + $300–$600/mo</div></div>
+        <div class="service-card"><span class="badge-new">New</span><div class="service-icon"><i class="fas fa-list-check"></i></div><h3>Menu & Modifier Setup</h3><p>The hard part of restaurant AI isn't the voice—it's teaching the system your menu, modifiers, and specials. We build the logic and test the flow.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$1,500 setup</div></div>
+        <div class="service-card"><span class="badge-new">New</span><div class="service-icon"><i class="fas fa-file-signature"></i></div><h3>Quote Follow‑Up Automation</h3><p>Most quotes go cold because nobody follows up. We automate the sequence and alert you when a lead is ready to close.</p><div class="price-tag"><i class="fas fa-tag"></i> $500–$1,500 setup + $150–$350/mo</div></div>
+        <div class="service-card"><span class="badge-new">New</span><div class="service-icon"><i class="fas fa-headset"></i></div><h3>AI Voice Agent (After Hours)</h3><p>A conversational AI that answers calls when you're closed or on a job. It qualifies the caller, books appointments, and sends you a summary.</p><div class="price-tag"><i class="fas fa-tag"></i> $1,000–$3,000 setup + $250–$600/mo</div></div>
+        <div class="service-card"><span class="badge-new">New</span><div class="service-icon"><i class="fas fa-user-check"></i></div><h3>AI Intake & Lead Qualification</h3><p>Every inbound lead gets a response within seconds. Our AI asks qualifying questions and routes only ready-to-buy prospects to you.</p><div class="price-tag"><i class="fas fa-tag"></i> $1,000–$2,500 setup + $200–$500/mo</div></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-file-invoice"></i></div><h3>Back‑Office Automation</h3><p>Quote drafting, invoice processing, document extraction. Saves hours every week.</p><div class="price-tag"><i class="fas fa-tag"></i> Custom scope</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audit" class="section-darker" style="padding-top: 0; padding-bottom: 0;">
+    <div class="container">
+      <div class="audit-highlight">
+        <div class="audit-content">
+          <div class="audit-text">
+            <h3>Start with a <span>Paid AI Audit</span>. Walk away with a prescription, not a sales pitch.</h3>
+            <p>Most businesses know they're leaking revenue but don't know where. Our audit identifies the single highest-impact fix and gives you a written roadmap.</p>
+            <ul><li><i class="fas fa-check-circle"></i> 90-minute walkthrough of your call logs, booking system, and website</li><li><i class="fas fa-check-circle"></i> Written report identifying 3–5 revenue leaks</li><li><i class="fas fa-check-circle"></i> Specific recommendation for the first workflow</li><li><i class="fas fa-check-circle"></i> Full audit fee credited toward implementation</li></ul>
+          </div>
+          <div class="audit-price"><div class="price">$1,500 <small>one-time audit fee</small></div><div class="credit-note"><i class="fas fa-check-circle"></i> Credited toward implementation</div><a href="#contact" class="btn btn-large">Book your audit</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="section-dark">
+    <div class="container">
+      <h2 class="section-title">Who we help</h2>
+      <p class="section-subtitle">We specialise in owner‑operated businesses across New England that feel the pain of missed opportunities every day.</p>
+      <div class="industry-list">
+        <span class="industry-badge"><i class="fas fa-wrench"></i> Home services</span>
+        <span class="industry-badge"><i class="fas fa-tooth"></i> Dental practices</span>
+        <span class="industry-badge"><i class="fas fa-gavel"></i> Law firms</span>
+        <span class="industry-badge"><i class="fas fa-home"></i> Real estate</span>
+        <span class="industry-badge"><i class="fas fa-calculator"></i> Accounting firms</span>
+        <span class="industry-badge"><i class="fas fa-car"></i> Auto repair</span>
+        <span class="industry-badge"><i class="fas fa-utensils"></i> Restaurants</span>
+        <span class="industry-badge"><i class="fas fa-paw"></i> Veterinary clinics</span>
+      </div>
+      <div style="text-align:center; margin-top: 40px;"><a href="#contact" class="btn btn-outline">Not sure if you fit? Let's talk →</a></div>
+    </div>
+  </section>
+
+  <section id="how" class="section-darker">
+    <div class="container">
+      <h2 class="section-title">How we get you results fast</h2>
+      <p class="section-subtitle">No long discovery cycles. We identify the biggest leak and fix it within weeks.</p>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-number">1</div><h4>AI Audit</h4><p>We look at your call logs, booking system, and website to pinpoint where you're losing the most revenue.</p></div>
+        <div class="step-card"><div class="step-number">2</div><h4>Build & launch</h4><p>We implement the first fix in days, not months. Fixed price, no surprises.</p></div>
+        <div class="step-card"><div class="step-number">3</div><h4>Measure & optimise</h4><p>You see the impact: recovered calls, fewer no‑shows, more reviews. We monitor and tweak monthly.</p></div>
+        <div class="step-card"><div class="step-number">4</div><h4>Expand when ready</h4><p>Once one workflow is humming, we add the next highest‑impact automation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section-dark">
+    <div class="container">
+      <h2 class="section-title">Common questions</h2>
+      <p class="section-subtitle">The objections we hear most often from local business owners.</p>
+      <div class="faq-grid">
+        <div class="faq-item"><h4><i class="fas fa-question-circle"></i>Why not just use ChatGPT myself?</h4><p>You could clean your own house, too — but most people pay someone because they'd rather spend their time elsewhere. It's about connecting the tool to your systems, and having someone to fix it when it breaks.</p></div>
+        <div class="faq-item"><h4><i class="fas fa-question-circle"></i>How fast will I see results?</h4><p>Most clients see recovered jobs or appointments within the first 2–3 weeks. We set up a 30-day check-in to review the numbers together.</p></div>
+        <div class="faq-item"><h4><i class="fas fa-question-circle"></i>What if I'm not technical?</h4><p>You don't need to be. We handle the setup, integrations, and ongoing maintenance.</p></div>
+        <div class="faq-item"><h4><i class="fas fa-question-circle"></i>Do you require a long-term contract?</h4><p>No. The implementation is a one-time fixed fee. The retainer is month-to-month with 30 days notice.</p></div>
+        <div class="faq-item"><h4><i class="fas fa-question-circle"></i>Are you local?</h4><p>Yes. We serve the North Shore, Greater Boston, and all of New England.</p></div>
+        <div class="faq-item"><h4><i class="fas fa-question-circle"></i>Do you work with restaurants that use Toast, Square, or Clover?</h4><p>Yes. Those are the three POS systems we integrate with. If you're on a legacy system, we'll tell you upfront whether it's feasible.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section-darker">
+    <div class="container">
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-subtitle">Most clients start with the audit, then implement one high-impact workflow.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card featured"><h4>AI Audit</h4><div class="pricing-price">$1,500 <small>one-time</small></div><p>Identify where you're leaking revenue</p><ul><li><i class="fas fa-check-circle"></i> 90-minute walkthrough</li><li><i class="fas fa-check-circle"></i> Written report with ranked fixes</li><li><i class="fas fa-check-circle"></i> Fee credited toward implementation</li></ul><a href="#contact" class="btn" style="width:100%; text-align:center;">Book your audit</a></div>
+        <div class="pricing-card"><h4>Implementation</h4><div class="pricing-price">$1,500–$5,000 <small>one-time</small></div><p>Build the first workflow</p><ul><li><i class="fas fa-check-circle"></i> Fixed-scope build</li><li><i class="fas fa-check-circle"></i> 5–7 day turnaround</li><li><i class="fas fa-check-circle"></i> 30-day ROI report</li></ul><a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;">Request quote</a></div>
+        <div class="pricing-card"><h4>Monthly Retainer</h4><div class="pricing-price">$300–$1,500 <small>/month</small></div><p>Ongoing monitoring & optimisation</p><ul><li><i class="fas fa-check-circle"></i> System monitoring & fixes</li><li><i class="fas fa-check-circle"></i> Monthly performance review</li><li><i class="fas fa-check-circle"></i> Priority support</li></ul><a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;">Add a retainer</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-dark" style="padding-top: 0;">
+    <div class="container">
+      <div class="cta-section">
+        <h2>Ready to stop leaking revenue?</h2>
+        <p>Tell us about your business and we'll show you the one workflow that will pay for itself within 60 days.</p>
+
+        <!-- NETLIFY FORM -->
+        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Reason for contact</label>
+            <textarea id="message" name="message" placeholder="Tell us about your business and what's going on — missed calls, no-shows, slow follow-up, phone orders, or something else." required></textarea>
+          </div>
+          <button type="submit" class="btn" id="submitBtn">Send message</button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> Thanks! Your message was sent. We'll get back to you within one business day.
+          </div>
+          <div class="form-error" id="formError"></div>
+          <p class="form-note"><i class="fas fa-envelope" style="color:#60a5fa;"></i> Goes directly to our inbox. We reply within one business day.<br><i class="fas fa-phone" style="color:#60a5fa;"></i> Or call us: (857) 220-7689</p>
+        </form>
+
+        <p class="local-note" style="margin-top: 24px; font-size: 0.88rem; text-align:center;">
+          <i class="fas fa-users"></i> We speak at local chambers and trade groups. <a href="mailto:aiadoptionpros@outlook.com?subject=Workshop%20request" style="color:#60a5fa;">Ask about a free 30-minute workshop</a> for your members.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div>© 2026 AI Adoption Pros. All rights reserved.</div>
+      <div class="footer-links"><a href="#services">Services</a><a href="#audit">AI Audit</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat"><i class="fas fa-comment-dots"></i><span class="pulse"></span></button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+      <div class="bot-info"><h4>AI Adoption Pros Assistant</h4><span>Online · replies instantly</span></div>
+      <button class="chat-close" id="chatClose" aria-label="Close chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
+      <button id="chatSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // NETLIFY CONTACT FORM (AJAX)
+    // ==========================================
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
+    const submitBtn = document.getElementById('submitBtn');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      formError.style.display = 'none';
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        formError.textContent = 'Something went wrong. Please try again or email aiadoptionpros@outlook.com directly.';
+        formError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+      }
+    });
+
+    // ==========================================
+    // CHATBOT — calls Netlify Function on confirm
+    // ==========================================
+    (function () {
+      const toggle = document.getElementById('chatToggle');
+      const win = document.getElementById('chatWindow');
+      const closeBtn = document.getElementById('chatClose');
+      const messagesEl = document.getElementById('chatMessages');
+      const inputEl = document.getElementById('chatInput');
+      const sendBtn = document.getElementById('chatSend');
+
+      let state = { step: 'ask_name', name: '', phone: '', service: '', time: '', transcript: [] };
+
+      const serviceOptions = [
+        'Missed-call text-back',
+        'AI phone answering',
+        'No-show reduction',
+        'Review generation',
+        'Restaurant phone ordering',
+        'AI audit ($1,500)',
+        'Something else'
+      ];
+
+      function scrollToBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
+
+      function addMessage(text, sender, options) {
+        const div = document.createElement('div');
+        div.className = 'msg ' + sender;
+        div.innerHTML = text;
+        if (options && options.length) {
+          const optWrap = document.createElement('div');
+          optWrap.className = 'options';
+          options.forEach(opt => {
+            const b = document.createElement('button');
+            b.className = 'option-btn';
+            b.textContent = opt;
+            b.addEventListener('click', () => handleUserInput(opt));
+            optWrap.appendChild(b);
+          });
+          div.appendChild(optWrap);
+        }
+        messagesEl.appendChild(div);
+        scrollToBottom();
+        if (sender === 'bot') state.transcript.push('Bot: ' + text.replace(/<[^>]*>/g, ''));
+        if (sender === 'user') state.transcript.push('User: ' + text);
+      }
+
+      function showTyping() {
+        const t = document.createElement('div');
+        t.className = 'typing-indicator';
+        t.id = 'typingIndicator';
+        t.innerHTML = '<span></span><span></span><span></span>';
+        messagesEl.appendChild(t);
+        scrollToBottom();
+      }
+
+      function hideTyping() {
+        const t = document.getElementById('typingIndicator');
+        if (t) t.remove();
+      }
+
+      function botReply(text, options, delay) {
+        showTyping();
+        setTimeout(() => { hideTyping(); addMessage(text, 'bot', options); }, delay || 700);
+      }
+
+      function startConversation() {
+        if (messagesEl.children.length > 0) return;
+        botReply('Hi there 👋 I\'m the AI Adoption Pros assistant. I can help you book a free 15-minute intro call or a paid AI audit.<br><br>What\'s your name?', null, 500);
+        state.step = 'ask_name';
+      }
+
+      async function submitBooking() {
+        try {
+          const response = await fetch('/.netlify/functions/send-booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: state.name,
+              phone: state.phone,
+              service: state.service,
+              time: state.time,
+              transcript: state.transcript.join('\n')
+            })
+          });
+          if (!response.ok) throw new Error('Booking submission failed');
+          return true;
+        } catch (err) {
+          console.error('Booking error:', err);
+          return false;
+        }
+      }
+
+      async function handleUserInput(raw) {
+        const text = raw.trim();
+        if (!text) return;
+        addMessage(text, 'user');
+        inputEl.value = '';
+
+        switch (state.step) {
+          case 'ask_name':
+            state.name = text;
+            state.step = 'ask_phone';
+            botReply('Nice to meet you, ' + escapeHtml(state.name) + '. What\'s the best phone number to reach you on?', null, 700);
+            break;
+          case 'ask_phone':
+            state.phone = text;
+            state.step = 'ask_service';
+            botReply('Got it. What are you most interested in?', serviceOptions, 700);
+            break;
+          case 'ask_service':
+            state.service = text;
+            state.step = 'ask_time';
+            botReply('Perfect. When works best for a 15-minute call?', ['Tomorrow morning', 'Tomorrow afternoon', 'This week', 'Next week'], 700);
+            break;
+          case 'ask_time':
+            state.time = text;
+            state.step = 'confirm';
+            botReply('Thanks, ' + escapeHtml(state.name) + '. Here\'s what I have:<br><br><strong>Name:</strong> ' + escapeHtml(state.name) + '<br><strong>Phone:</strong> ' + escapeHtml(state.phone) + '<br><strong>Interested in:</strong> ' + escapeHtml(state.service) + '<br><strong>Preferred time:</strong> ' + escapeHtml(state.time) + '<br><br>Is that correct?', ['Yes, book it', 'Start over'], 800);
+            break;
+          case 'confirm':
+            if (text.toLowerCase().indexOf('yes') === 0 || text.toLowerCase().indexOf('book') === 0) {
+              state.step = 'sending';
+              botReply('One moment while I send your request...', null, 500);
+              const success = await submitBooking();
+              if (success) {
+                state.step = 'done';
+                botReply('✅ All set, ' + escapeHtml(state.name) + '! I\'ve sent your booking request to the team. They\'ll text you at ' + escapeHtml(state.phone) + ' to confirm the exact time.<br><br>This is a demo of the kind of booking assistant we build for clients — imagine it answering your after-hours calls and booking jobs while you sleep.<br><br>Want to talk to a human? Call <strong>(857) 220-7689</strong>.', null, 900);
+              } else {
+                state.step = 'done';
+                botReply('I had trouble sending that. Please call <strong>(857) 220-7689</strong> or email <strong>aiadoptionpros@outlook.com</strong> directly.', null, 500);
+              }
+            } else {
+              state = { step: 'ask_name', name: '', phone: '', service: '', time: '', transcript: [] };
+              botReply('No problem — let\'s start over. What\'s your name?', null, 500);
+            }
+            break;
+          default:
+            botReply('I\'m here if you need anything. You can ask about services, pricing, or booking.', ['Book a call', 'See services'], 500);
+            break;
+        }
+      }
+
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+      }
+
+      toggle.addEventListener('click', () => {
+        if (win.classList.contains('open')) win.classList.remove('open');
+        else { win.classList.add('open'); startConversation(); setTimeout(() => inputEl.focus(), 200); }
+      });
+      closeBtn.addEventListener('click', () => win.classList.remove('open'));
+      sendBtn.addEventListener('click', () => handleUserInput(inputEl.value));
+      inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); handleUserInput(inputEl.value); } });
+    })();
+  </script>
+</body>
+</html>
